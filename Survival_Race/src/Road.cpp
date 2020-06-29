@@ -14,6 +14,7 @@ using namespace std;
 
 Road::Road()
 {
+	// create the first level and set its members
 	this->level = new Level;
 	this->level->difficulty = 1;
 	this->level->speed = 1;
@@ -21,6 +22,7 @@ Road::Road()
 	new_segment(this->level->difficulty);
 	this->level->next = NULL;
 
+	// setup the members with the first level
 	this->current_speed = 1;
 	this->current_difficulty = 1;
 	this->current = this->level->segment;
@@ -44,8 +46,10 @@ float Road::get_current_speed()
 
 void Road::new_level()
 {
+	// search the next new level, i indicates the difficulty of the level
 	int i = 2;
 	p_level tmp = this->level;
+	
 	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
@@ -53,8 +57,10 @@ void Road::new_level()
 	}
 	tmp->next = new Level;
 	tmp->next->difficulty = i;
+	// setup the level's speed
 	if (i >= 5)
 	{
+		// if the difficulty is bigger than 5, the speed increments of 0.2 for each level
 		tmp->next->speed = 1 + ((i - 5.0) / 5.0);
 	}
 	else
@@ -161,6 +167,8 @@ void Road::new_segment(int difficulty)
 void Road::shift(int y)
 {
 	int r = y % LENGTH;
+	// check r, if condition is true, means the next iteration the currents segments is all printed
+	// so it changes the next segment, that is "after"
 	if (r == 0)
 	{
 		this->current = this->after;
@@ -168,9 +176,11 @@ void Road::shift(int y)
 	}
 }
 
-void Road::check_after(int y)
+void Road::after(int y)
 {
 	int r = y % LENGTH;
+	// check r, if condition is true, means the next iteration it prints 2 segments
+	// so check if the next segment, "after", is there, otherwise it creates
 	if (r == 30)
 	{
 		if (this->current->next == NULL)
@@ -186,35 +196,43 @@ void Road::level_up()
 	int i = 1;
 	int n = this->current_difficulty;
 	p_level tmp = this->level;
+	// search the next level, that is the next number of current_difficulty
 	while (i < n)
 	{
 		tmp = tmp->next;
 		i++;
 	}
+	// i indicates the difficulty of the new level
 	i++;
+	// if there isn't the next level, it creates the new level and the first segment of the new level
 	if (tmp->next == NULL)
 	{
 		new_level();
 		new_segment(i);
 	}
+	// change the current variables
 	this->current_speed = tmp->next->speed;
-	this->after = tmp->next->segment;
 	this->current_difficulty = i;
-}
+	// the next segment to print is the next level
+	this->after = tmp->next->segment;
+	}
 
 void Road::level_down()
 {
 	int i = 1;
 	int n = this->current_difficulty - 1;
 	p_level tmp = this->level;
+	// search the pre-level that has the difficulty as the current_difficulty - 1
 	while (i < n)
 	{
 		tmp = tmp->next;
 		i++;
 	}
+	// change the current variables
 	this->current_speed = tmp->next->speed;
-	this->after = tmp->segment;
 	this->current_difficulty = i;
+	// the next segment to print is the first segment of the pre-level
+	this->after = tmp->segment;
 }
 
 void Road::print_level(int y)

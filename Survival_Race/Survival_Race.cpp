@@ -32,7 +32,7 @@ int main()
 
         index++;
 
-        road.check_after(index);
+        road.after(index);
         road.shift(index);
 
         Sleep(200/road.get_current_speed());
@@ -45,7 +45,7 @@ int main()
         // end DEBUG
 
     } while (points.check_value());
-    
+
     system("CLS");
     TheEnd();
     Sleep(5000);
