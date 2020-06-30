@@ -14,3 +14,9 @@ Il progetto utilizza le seguenti librerie esterne:
 * iostream
 * stdlib.h
 * time.h
+
+Per una corretta visualizzazione dal terminale si consiglia di avere una finestra di dimensioni 75x25
+
+Si può accedere al debug inserendo ``#define DEBUG``
+Si consiglia di tenere la finestra a grandezza schermo
+Nell'esecuzione col DEBUG, si possono vedere a destra della schermata alcuni valori.
