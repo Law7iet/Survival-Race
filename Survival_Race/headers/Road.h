@@ -32,33 +32,37 @@ class Road
 protected:
 	// it indicates the difficult of the level
 	int current_difficulty;
-	// it indicates the speed of the game
+	// it indicates the speed of the level
 	float current_speed;
+	// it indicates the current segment and the next segment to print in the display
+	p_segment current_segment, next_segment;
 	// it is the object that contains the road
 	p_level level;
-	// it indicates the current segment and the next segment to print in the display
-	p_segment current, after;
 public:
-	// it creates a segment of the first level
+	// it creates the first segment of the first level
 	Road();
-	// it returns the current segment
-	p_segment get_current();
-	// it returns the current difficulty
+	// it returns current_difficulty
 	int get_current_difficulty();
-	// it returns the current speed
+	// it returns current_speed
 	float get_current_speed();
-	// it creates a new level if there isn't the current's next level
+	// it returns current_segment
+	p_segment get_current_segment();
+	// it returns next_segment
+	p_segment get_next_segment();
+	// it returns level
+	p_level get_current_level();
+	// if there isn't, it creates the next level of the current level
 	void new_level();
-	// add in the tail of the level "difficulty" a new segment
+	// it creates and adds a new segment in the tail of the segment of the level "difficulty"
 	void new_segment(int difficulty);
-	// change the current segment
+	// it changes the current_segment with the next_segment
 	void shift(int y);
-	// check if there's the next segment of  current (could be a segment of the same level or different level)
+	// it checks if there's the next segment of current_segment
 	void after(int y);
-	// search the first segment of the next level and assign it to after
+	// change the level difficulty with the next level
 	void level_up();
-	// search the first segment of the pre level and assin it to after
+	// change the level difficulty with the pre level
 	void level_down();
 	// print a part of road, depending on the index
-	void print_level(int y);
+	void print(int y);
 };

@@ -40,17 +40,17 @@ void Move(Car& car, Points& points)
 void Hit(Car& car, Points& points, Road road, int index)
 {
 	p_segment tmp = new Segment;
-	tmp = road.get_current();
-	// r is the top-raws printed in the display
+	tmp = road.get_current_segment();
+	// r is the top-raw printed in the display
 	int r = index % LENGTH;
-	// x is the car's location
 	int x = car.get_x();
-	// checks the the current segment element in (r, x) position
 	char key = tmp->field[r][x];
+	// check if in the current segment there's an element in (r, x) position
 	if (key != ' ')
 	{
 		// clean the display beacuse the points could change
 		system("CLS");
+		// depending on the element, it decrease or increase points
 		switch (key)
 		{
 		case('x'):
@@ -71,23 +71,24 @@ void Hit(Car& car, Points& points, Road road, int index)
 	}
 }
 
-void Level(Points points, Road& road, int index)
+void Change_Level(Points points, Road& road, int index)
 {
 	// r is the y-coordinate of the current field of the road's stream
 	int r = index % LENGTH;
-	// check r, if condition is true, means the next iteration it prints 2 segments
+	// check r, if the condition is true, means the next iteration it prints 2 segments
 	if (r == 30)
 	{
 		int score = points.get_value();
-		// x is the higest score of the level
-		int x = road.get_current_difficulty() * 200;
-		// if score is higher than x, there's level up
-		if (score > x)
+		// x is the new road's level
+		int x = (score / 200) + 1;
+		// if x is higher than the past difficulty, there's level up
+		while (x > road.get_current_difficulty())
 		{
 			road.level_up();
+			x--;
 		}
-		// if score is lower than x - 200, there's level down
-		if (score <= x - 200)
+		// if x is lower than the past difficulty, there's level down
+		while (x < road.get_current_difficulty())
 		{
 			road.level_down();
 		}

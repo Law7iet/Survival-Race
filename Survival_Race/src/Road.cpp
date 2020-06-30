@@ -25,13 +25,8 @@ Road::Road()
 	// setup the members with the first level
 	this->current_speed = 1;
 	this->current_difficulty = 1;
-	this->current = this->level->segment;
-	this->after = NULL;
-}
-
-p_segment Road::get_current()
-{
-	return this->current;
+	this->current_segment = this->level->segment;
+	this->next_segment = NULL;
 }
 
 int Road::get_current_difficulty()
@@ -42,6 +37,21 @@ int Road::get_current_difficulty()
 float Road::get_current_speed()
 {
 	return this->current_speed;
+}
+
+p_segment Road::get_current_segment()
+{
+	return this->current_segment;
+}
+
+p_segment Road::get_next_segment()
+{
+	return this->next_segment;
+}
+
+p_level Road::get_current_level()
+{
+	return this->level;
 }
 
 void Road::new_level()
@@ -171,8 +181,8 @@ void Road::shift(int y)
 	// so it changes the next segment, that is "after"
 	if (r == 0)
 	{
-		this->current = this->after;
-		this->after = this->after->next;
+		this->current_segment = this->next_segment;
+		this->next_segment = this->next_segment->next;
 	}
 }
 
@@ -183,11 +193,11 @@ void Road::after(int y)
 	// so check if the next segment, "after", is there, otherwise it creates
 	if (r == 30)
 	{
-		if (this->current->next == NULL)
+		if (this->current_segment->next == NULL)
 		{
 			new_segment(this->current_difficulty);
 		}
-		this->after = this->current->next;
+		this->next_segment = this->current_segment->next;
 	}
 }
 
@@ -214,7 +224,7 @@ void Road::level_up()
 	this->current_speed = tmp->next->speed;
 	this->current_difficulty = i;
 	// the next segment to print is the next level
-	this->after = tmp->next->segment;
+	this->next_segment = tmp->next->segment;
 	}
 
 void Road::level_down()
@@ -232,10 +242,10 @@ void Road::level_down()
 	this->current_speed = tmp->next->speed;
 	this->current_difficulty = i;
 	// the next segment to print is the first segment of the pre-level
-	this->after = tmp->segment;
+	this->next_segment = tmp->segment;
 }
 
-void Road::print_level(int y)
+void Road::print(int y)
 {
 	p_segment tmp = new Segment;
 	p_segment pre = new Segment;
@@ -251,7 +261,7 @@ void Road::print_level(int y)
 			for (int j = 0; j < WIDTH; j++)
 			{
 				Locate(j + OFFSET_X, i + OFFSET_Y);
-				cout << this->current->field[i + (y % LENGTH)][j];
+				cout << this->current_segment->field[i + (y % LENGTH)][j];
 			}
 		}
 	}
@@ -267,7 +277,7 @@ void Road::print_level(int y)
 			{
 				Locate(j + OFFSET_X, i + OFFSET_Y);
 				// y is the first row and i is an offset to print the first q rows
-				cout << this->current->field[(y % LENGTH) + i][j];
+				cout << this->current_segment->field[(y % LENGTH) + i][j];
 			}
 		}
 		// print the second segment
@@ -279,7 +289,7 @@ void Road::print_level(int y)
 				Locate(j + OFFSET_X, i + OFFSET_Y);
 				// the right row in the level is i (the offset) minus the value of q
 				// in fact, it prints the rows 0, 1,... of the second segment
-				cout << this->after->field[i - q][j];
+				cout << this->next_segment->field[i - q][j];
 			}
 		}
 	}
