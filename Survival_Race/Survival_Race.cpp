@@ -1,3 +1,5 @@
+#define DEBUG
+
 #include <iostream>
 #include <Windows.h>
 #include "headers/Car.h"
@@ -6,6 +8,7 @@
 #include "headers/Locate.h"
 #include "headers/Points.h"
 #include "headers/Road.h"
+#include "headers/Debug.h"
 
 int main()
 {
@@ -22,27 +25,24 @@ int main()
     {
         Move(car, points);
         Hit(car, points, road, index);
-
-        points.increase_points(1);
-        road.print_level(index);
+        road.print(index);
         car.print();
+        points.increase_points(1);
         Score(points.get_value(), road.get_current_difficulty());
-
-        Level(points, road, index);
-
+        Change_Level(points, road, index);
         index++;
-
         road.after(index);
         road.shift(index);
-
         Sleep(200/road.get_current_speed());
 
-        // DEBUG
-        Locate(80, 2);
-        std::cout << "y: " << index;
-        Locate(80, 3);
-        std::cout << "Speed: " << (float)(200 / road.get_current_speed());
-        // end DEBUG
+        #ifdef DEBUG
+        system("CLS");
+        print_index(index, 80, 1);
+        print_current_speed(road, 80, 2);
+        print_current_segment(road, 80, 3);
+        print_next_segment(road, 80, 4);
+        print_all_segment(road, 80, 5);
+        #endif
 
     } while (points.check_value());
 

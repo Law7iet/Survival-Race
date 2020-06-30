@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="src\Car.cpp" />
     <ClCompile Include="src\Controls.cpp" />
+    <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Graphics.cpp" />
     <ClCompile Include="src\Locate.cpp" />
     <ClCompile Include="src\Points.cpp" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="headers\Car.h" />
     <ClInclude Include="headers\Controls.h" />
+    <ClInclude Include="headers\Debug.h" />
     <ClInclude Include="headers\Graphics.h" />
     <ClInclude Include="headers\Locate.h" />
     <ClInclude Include="headers\Points.h" />
