@@ -11,7 +11,9 @@
 
 using namespace std;
 
-// if can't print, change global variables in '#'
+// if can't play, change global variables in '#'
+// and in Road.cpp change in new_segment function in the raw 97
+// tmp->field[i][j] = '#';
 char TopCornerLeft = 218;
 char TopCornerRight = 191;
 char MiddleTop = 194;
