@@ -1,3 +1,5 @@
+// to use standar ASCII, put '#' as value of variables in raws 16-17-18-19-20-21-22-23 
+
 #define BEGIN 0
 #define LENGTH 21
 #define WIDTH 70
@@ -11,9 +13,6 @@
 
 using namespace std;
 
-// if can't play, change global variables in '#'
-// and in Road.cpp change in new_segment function in the raw 97
-// tmp->field[i][j] = '#';
 char TopCornerLeft = 218;
 char TopCornerRight = 191;
 char MiddleTop = 194;
