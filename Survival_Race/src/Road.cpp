@@ -1,3 +1,5 @@
+// to use standar ASCII, put '|' as value of variables in raw 99
+
 #define LENGTH 50
 #define WIDTH 11
 #define DISPLAY_Y 20
@@ -59,7 +61,7 @@ void Road::new_level()
 	// search the next new level, i indicates the difficulty of the level
 	int i = 2;
 	p_level tmp = this->level;
-	
+
 	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
@@ -179,7 +181,7 @@ void Road::shift(int y)
 	int r = y % LENGTH;
 	// check r, if condition is true, means the next iteration the currents segments is all printed
 	// so it changes the next segment, that is "after"
-	if (r == 0)
+	if (r == 49)
 	{
 		this->current_segment = this->next_segment;
 		this->next_segment = this->next_segment->next;
@@ -193,11 +195,11 @@ void Road::after(int y)
 	// so check if the next segment, "after", is there, otherwise it creates
 	if (r == 30)
 	{
-		if (this->current_segment->next == NULL)
+		if (this->next_segment == NULL)
 		{
 			new_segment(this->current_difficulty);
+			this->next_segment = this->current_segment->next;
 		}
-		this->next_segment = this->current_segment->next;
 	}
 }
 
