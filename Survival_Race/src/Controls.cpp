@@ -107,6 +107,7 @@ void Change_Level(Points points, Road& road, int index)
 		while (x < road.get_current_difficulty())
 		{
 			road.level_down();
+			x++;
 		}
 	}
 }
