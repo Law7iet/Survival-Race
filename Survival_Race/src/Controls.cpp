@@ -16,8 +16,15 @@ void Move(Car& car, Points& points)
 		key = _getch();
 	}
 	// depending on the key the car moves or ends the game
+	// Uppercase letter and Lower case letters can controlled the car
 	switch (key) {
 	case 'a':
+		if (car.get_x() > BORDER_LEFT)
+		{
+			car.set_x(car.get_x() - MOVE);
+		}
+		break;
+	case 'A':
 		if (car.get_x() > BORDER_LEFT)
 		{
 			car.set_x(car.get_x() - MOVE);
@@ -29,7 +36,16 @@ void Move(Car& car, Points& points)
 			car.set_x(car.get_x() + MOVE);
 		}
 		break;
+	case 'D':
+		if (car.get_x() < BORDER_RIGHT)
+		{
+			car.set_x(car.get_x() + MOVE);
+		}
+		break;
 	case 'q':
+		points.set_value(-1);
+		break;
+	case 'Q':
 		points.set_value(-1);
 		break;
 	default:
@@ -45,7 +61,7 @@ void Hit(Car& car, Points& points, Road road, int index)
 	int r = index % LENGTH;
 	int x = car.get_x();
 	char key = tmp->field[r][x];
-	// check if in the current segment there's an element in (r, x) position
+	// check if in the current segment there is an element in (r, x) position
 	if (key != ' ')
 	{
 		// clean the display beacuse the points could change
@@ -73,7 +89,7 @@ void Hit(Car& car, Points& points, Road road, int index)
 
 void Change_Level(Points points, Road& road, int index)
 {
-	// r is the y-coordinate of the current field of the road's stream
+	// r is the y coord of the current field of the road's stream
 	int r = index % LENGTH;
 	// check r, if the condition is true, means the next iteration it prints 2 segments
 	if (r == 30)
@@ -91,7 +107,6 @@ void Change_Level(Points points, Road& road, int index)
 		while (x < road.get_current_difficulty())
 		{
 			road.level_down();
-			x++;
 		}
 	}
 }
