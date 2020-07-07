@@ -70,16 +70,16 @@ void Hit(Car& car, Points& points, Road road, int index)
 		switch (key)
 		{
 		case('x'):
-			points.decrease_points(200);
+			points.subpoints(200);
 			break;
 		case('*'):
-			points.decrease_points(100);
+			points.subpoints(100);
 			break;
 		case('+'):
-			points.decrease_points(50);
+			points.subpoints(50);
 			break;
 		case('O'):
-			points.increase_points(50);
+			points.addpoints(50);
 			break;
 		default:
 			break;
