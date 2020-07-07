@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void A(int& x, int y)
+void A(int& x, int y)//print letter A 
 {
 	Locate(x, y);
 	cout << " ## " << endl;
@@ -19,7 +19,7 @@ void A(int& x, int y)
 	x = x + 5;
 }
 
-void C(int& x, int y)
+void C(int& x, int y)//print letter C
 {
 	Locate(x, y);
 	cout << "####" << endl;
@@ -34,7 +34,7 @@ void C(int& x, int y)
 	x = x + 5;
 }
 
-void E(int& x, int y)
+void E(int& x, int y)//print letter E
 {
 	Locate(x, y);
 	cout << "####" << endl;
@@ -49,7 +49,7 @@ void E(int& x, int y)
 	x = x + 5;
 }
 
-void G(int& x, int y)
+void G(int& x, int y)//print letter G
 {
 	Locate(x, y);
 	cout << "####" << endl;
@@ -64,7 +64,7 @@ void G(int& x, int y)
 	x = x + 5;
 }
 
-void I(int& x, int y)
+void I(int& x, int y)//print letter I
 {
 	Locate(x, y);
 	cout << "#" << endl;
@@ -79,7 +79,7 @@ void I(int& x, int y)
 	x = x + 2;
 }
 
-void L(int& x, int y)
+void L(int& x, int y)//print letter L
 {
 	Locate(x, y);
 	cout << "#    " << endl;
@@ -94,7 +94,7 @@ void L(int& x, int y)
 	x = x + 5;
 }
 
-void M(int& x, int y)
+void M(int& x, int y)//print letter M
 {
 	Locate(x, y);
 	cout << "## ##" << endl;
@@ -109,7 +109,7 @@ void M(int& x, int y)
 	x = x + 6;
 }
 
-void O(int& x, int y)
+void O(int& x, int y)//print letter O
 {
 	Locate(x, y);
 	cout << "####" << endl;
@@ -124,7 +124,7 @@ void O(int& x, int y)
 	x = x + 5;
 }
 
-void R(int& x, int y)
+void R(int& x, int y)//print letter R
 {
 	Locate(x, y);
 	cout << "### " << endl;
@@ -139,7 +139,7 @@ void R(int& x, int y)
 	x = x + 5;
 }
 
-void S(int& x, int y)
+void S(int& x, int y)//print letter S
 {
 	Locate(x, y);
 	cout << "####" << endl;
@@ -154,7 +154,7 @@ void S(int& x, int y)
 	x = x + 5;
 }
 
-void T(int& x, int y)
+void T(int& x, int y)//print letter T
 {
 	Locate(x, y);
 	cout << "#####" << endl;
@@ -169,7 +169,7 @@ void T(int& x, int y)
 	x = x + 6;
 }
 
-void U(int& x, int y)
+void U(int& x, int y)//print letter U
 {
 	Locate(x, y);
 	cout << "#  #" << endl;
@@ -184,7 +184,7 @@ void U(int& x, int y)
 	x = x + 5;
 }
 
-void V(int& x, int y)
+void V(int& x, int y)//print letter V
 {
 	Locate(x, y);
 	cout << "#   #" << endl;
@@ -199,7 +199,7 @@ void V(int& x, int y)
 	x = x + 6;
 }
 
-void W(int& x, int y)
+void W(int& x, int y)//print letter W
 {
 	Locate(x, y);
 	cout << "#   #" << endl;
