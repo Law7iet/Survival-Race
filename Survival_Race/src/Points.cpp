@@ -15,12 +15,12 @@ void Points::set_value(int x)
 	this->value = x;
 }
 
-void Points::decrease_points(int x)
+void Points::subpoints(int x)
 {
 	this->value = this->value - x;
 }
 
-void Points::increase_points(int x)
+void Points::addpoints(int x)
 {
 	this->value = this->value + x;
 }
