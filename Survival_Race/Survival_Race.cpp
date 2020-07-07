@@ -1,6 +1,5 @@
 #define DEBUG
-
-#include <iostream>
+ 
 #include <Windows.h>
 #include "headers/Car.h"
 #include "headers/Controls.h"
@@ -27,13 +26,13 @@ int main()
         Hit(car, points, road, index);
         road.print(index);
         car.print();
-        points.addpoints(1);
+        points.add_points(1);
         Score(points.get_value(), road.get_current_difficulty());
         Change_Level(points, road, index);
-        road.after(index);
         road.shift(index);
-        Sleep(200/road.get_current_speed());
+        road.after(index);
         index++;
+        Sleep(200/road.get_current_speed());
 
         #ifdef DEBUG
         system("CLS");
