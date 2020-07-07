@@ -27,13 +27,13 @@ int main()
         Hit(car, points, road, index);
         road.print(index);
         car.print();
-        points.increase_points(1);
+        points.addpoints(1);
         Score(points.get_value(), road.get_current_difficulty());
         Change_Level(points, road, index);
-        index++;
         road.after(index);
         road.shift(index);
         Sleep(200/road.get_current_speed());
+        index++;
 
         #ifdef DEBUG
         system("CLS");
