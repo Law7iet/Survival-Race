@@ -11,13 +11,13 @@
 #include "../headers/Locate.h"
 
 using namespace std;
-
+//set car symbol and in center
 Car::Car()
 {
 	this->symbol = 'V';
 	this->x_pos = 5;
 }
-
+//get car pos
 int Car::get_x()
 {
 	return this->x_pos;
