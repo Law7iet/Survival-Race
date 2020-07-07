@@ -1,3 +1,0 @@
-﻿  Survival_Race.cpp
-C:\Users\hanch\Desktop\Uni\Survival_Race\Survival_Race\Survival_Race.cpp(39,18): warning C4244: 'argomento': conversione da 'float' a 'DWORD'. Possibile perdita di dati.
-  Survival_Race.vcxproj -> C:\Users\hanch\Desktop\Uni\Survival_Race\Debug\Survival_Race.exe
