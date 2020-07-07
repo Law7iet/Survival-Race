@@ -1,10 +1,8 @@
-// to use standar ASCII, put '#' as value of variables in raws 16-17-18-19-20-21-22-23 
-
 #define BEGIN 0
 #define LENGTH 21
 #define WIDTH 70
-#define POS_X_TEXT 42
-#define POS_Y_TEXT 2
+#define TEXT_X 42
+#define TEXT_Y 2
 
 #include <iostream>
 #include "../headers/Locate.h"
@@ -13,31 +11,33 @@
 
 using namespace std;
 
-char TopCornerLeft = 218;
-char TopCornerRight = 191;
-char MiddleTop = 194;
-char MiddleBottom = 193;
-char BottomCornerLeft = 192;
-char BottomCornerRight = 217;
-char Raw = 196;
-char Column = 179;
+// if can't print, change global variables in '#' (from ASCII)
+char TopCornerLeft = '#';//218;
+char TopCornerRight = '#';//191;
+char MidTop = '#';//194;
+char MidBottom = '#';//193;
+char BottomCornerLeft = '#';//192;
+char BottomCornerRight = '#'; //217;
+char Raw = '#';//196;
+char Column = '#';//179;
 
-void Border() {
+void Border() {                     //External frame 
 
-    for (int i = 1; i < LENGTH; i++)
+    for (int i = 1; i < LENGTH; i++)//for the column
     {
-        Locate(BEGIN, i);
+        Locate(BEGIN, i);           //from (0,1) ~ (0,20)
         cout << Column;
-        Locate(WIDTH, i);
+        Locate(WIDTH, i);           //from (70,1) ~ (70,20)
         cout << Column;
     }
-    for (int i = 1; i < WIDTH; i++)
+    for (int i = 1; i < WIDTH; i++)//for the raw
     {
-        Locate(i, BEGIN);
+        Locate(i, BEGIN);           //from(1,0) ~ (69,0)
         cout << Raw;
-        Locate(i, LENGTH);
+        Locate(i, LENGTH);          //from(1,21) ~ (69,21)
         cout << Raw;
     }
+    //for the 4 corners
     Locate(BEGIN, BEGIN);
     cout << TopCornerLeft;
     Locate(WIDTH, BEGIN);
@@ -46,15 +46,16 @@ void Border() {
     cout << BottomCornerLeft;
     Locate(WIDTH, LENGTH);
     cout << BottomCornerRight;
+   
 }
 
-void Intro()
+void Intro()                        //at the beginning write the words"WELCOME TO SURVIVAL RACE"
 {
-    Border();
+    Border();                       //External frame
 
     int x = 11;
     int y = 4;
-
+                                    
     W(x, y);
     E(x, y);
     L(x, y);
@@ -85,51 +86,51 @@ void Intro()
     E(x, y);
 }
 
-void Score(int score, int difficulty)
+void Score(int score, int difficulty)     //print the score and difficulty and Some introduction
 {
     Border();
-    for (int i = BEGIN; i <= LENGTH; i++)
+    for (int i = BEGIN; i <= LENGTH; i++) //Inner border
     {
-        Locate(POS_X_TEXT - 2, i);
+        Locate(TEXT_X - 2, i);
         cout << Column;
     }
-    Locate(POS_X_TEXT - 2, BEGIN);
-    cout << MiddleTop;
-    Locate(POS_X_TEXT - 2, LENGTH);
-    cout << MiddleBottom;
+    Locate(TEXT_X - 2, BEGIN);
+    cout << MidTop;
+    Locate(TEXT_X - 2, LENGTH);
+    cout << MidBottom;
 
-    int PosText = POS_Y_TEXT;
+    int Y = TEXT_Y;
 
-    Locate(POS_X_TEXT, PosText);
+    Locate(TEXT_X, Y);                      //print score and level
     cout << "Score: " << score;
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 1;
+    Locate(TEXT_X,Y);
     cout << "Level: " << difficulty;
-    PosText = PosText + 2;
-    Locate(POS_X_TEXT, PosText);
-    cout << "Move left: A";
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 2;
+    Locate(TEXT_X,Y);
+    cout << "Move left: A";                 //print some introduction
+    Y = Y + 1;
+    Locate(TEXT_X, Y);
     cout << "Move right: D";
-    PosText = PosText + 2;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 2;
+    Locate(TEXT_X, Y);
     cout << "Object:         Score:";
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 1;
+    Locate(TEXT_X, Y);
     cout << "Car:   x        -200";
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 1;
+    Locate(TEXT_X, Y);
     cout << "Rocks: *        -100";
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 1;
+    Locate(TEXT_X, Y);
     cout << "Nail:  +        -50";
-    PosText = PosText + 1;
-    Locate(POS_X_TEXT, PosText);
+    Y = Y + 1;
+    Locate(TEXT_X, Y);
     cout << "Fuel:  O         +50";
-    PosText = PosText + 1;
+    Y = Y + 1;
 }
 
-void TheEnd() {
+void TheEnd() {                     //at the end write the words"GAME OVER"
     Border();
     int x = 0;
     int y = 0;
