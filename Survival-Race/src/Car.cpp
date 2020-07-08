@@ -1,4 +1,3 @@
-#define MOVE 1
 #define OFFSET_X 15
 #define OFFSET_Y 1
 

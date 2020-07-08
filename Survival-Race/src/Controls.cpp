@@ -102,7 +102,6 @@ void Change_Level(Points points, Road& road, int index)
 			while (x > road.get_current_difficulty())
 			{
 				road.level_up();
-				x--;
 			}
 		}
 		// if x is lower than the past difficulty, there's level down
@@ -111,7 +110,6 @@ void Change_Level(Points points, Road& road, int index)
 			while (x < road.get_current_difficulty())
 			{
 				road.level_down();
-				x++;
 			}
 		}
 	}
