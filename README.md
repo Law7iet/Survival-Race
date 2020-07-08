@@ -8,6 +8,9 @@ Più si sale di livello e ci sono più ostacoli oppure la velocità aumenta.
 Se dato un livello x si scende sotto al punteggio minimo (x * 200) si scende di livello, e si ristampa il blocco di strada già percorso.
 Il gioco termina quando il punteggio scende a 0, oppure cliccando il tasto Q.
 
+Per compilare, scaricare Visual Studio e cliccare il file ``Survival-Race.sln``. Dopodiché si aprirà l'intero progetto con Visual Studio.
+I file ``.h`` sono definiti nella cartella ``./Survival-Race/headers``, mentre i file ``.cpp`` sono definiti nella cartella ``./Survival-Race/src`` ad esclusione del programma ``Survival-Race.cpp``che è in ``./Survival-Race.cpp``. 
+
 Il progetto utilizza le seguenti librerie esterne:
 * Windows.h
 * conio.h
