@@ -125,16 +125,16 @@ void Score(int score, int difficulty)
     cout << "Object:         Score:";
     PosText = PosText + 1;
     Locate(POS_X_TEXT, PosText);
-    cout << "Car:   x        -200";
+    cout << "Car:   x        - 200";
     PosText = PosText + 1;
     Locate(POS_X_TEXT, PosText);
-    cout << "Rocks: *        -100";
+    cout << "Rocks: *        - 100";
     PosText = PosText + 1;
     Locate(POS_X_TEXT, PosText);
-    cout << "Nail:  +         -50";
+    cout << "Nail:  +        -  50";
     PosText = PosText + 1;
     Locate(POS_X_TEXT, PosText);
-    cout << "Fuel:  O         +50";
+    cout << "Fuel:  O        +  50";
     PosText = PosText + 1;
 }
 
