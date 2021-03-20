@@ -1,4 +1,4 @@
-#define DEBUG
+// #define DEBUG
  
 #include <Windows.h>
 #include "headers/Car.h"
@@ -16,6 +16,7 @@ int main()
     Car car = Car();
     Road road = Road();
 
+    system("CLS");
     Intro();
     Sleep(2000);
     system("CLS");
