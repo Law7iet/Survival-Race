@@ -27,7 +27,7 @@ The program is runnable on **Windows** and it needs these libraries:
 After download the repository, open the repository with Windows PowerShell.
 The PowerShell screen-size should be 75x25.\
 To compile the program, write `make`.\
-To execute the program, write `.\Main.exe`.\
+To execute the program, write `.\Main.exe`.
 
 To control the project's requirements you can add `#define DEBUG` in the `Survival-Race.cpp` file (and maximize the window-size).
 Running the program in *DEBUG* mode the game could be less smooth, but on the right there're details of the level.\
